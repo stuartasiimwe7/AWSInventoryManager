@@ -15,9 +15,9 @@
 - **Infrastructure as Code:** Managed with Terraform and Ansible.
 
 ## Technology Stack
-- **Frontend:** Next.js, Tailwind CSS
-- **Backend:** Node.js, Express.js, PostgreSQL
-- **Cloud Services:** AWS EC2, RDS, S3, Cognito, CloudWatch
+- **Frontend:** Next.js styled with Tailwind CSS, 
+- **Backend:** Node.js (using Prisma as the ORM) , Express.js, PostgreSQL
+- **Cloud Services:** AWS (EC2, RDS, S3, Cognito and CloudWatch)
 - **Deployment:** Docker, GitLab CI
 - **Infrastructure Management:** Terraform, Ansible
 
