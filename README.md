@@ -28,6 +28,20 @@
    git clone https://github.com/stuartasiimwe7/AWSInventoryManager.git
    cd AWSInventoryManager
 
+2. Install Dependencies:
+    ```bash
+    npm install
+
+3. Set up environment variables:
+Create a .env file in the root directory and add the necessary environment variables:
+    ```bash
+    DB_HOST=your-db-host
+    DB_USER=your-db-user
+    DB_PASSWORD=your-db-password
+    AWS_ACCESS_KEY_ID=your-aws-access-key-id
+    AWS_SECRET_ACCESS_KEY=your-aws-secret-access-key
+
+
 # Contributing 
 Contributions are welcome! Please fork the repository and submit a pull request. 
 
