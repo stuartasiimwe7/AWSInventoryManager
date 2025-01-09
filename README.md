@@ -41,6 +41,11 @@ Create a .env file in the root directory and add the necessary environment varia
     AWS_ACCESS_KEY_ID=your-aws-access-key-id
     AWS_SECRET_ACCESS_KEY=your-aws-secret-access-key
 
+4.Run the development server:
+    ```bash
+    npm run dev
+
+5. Access the dashboard: Open your browser and navigate to http://localhost:3000.
 
 # Contributing 
 Contributions are welcome! Please fork the repository and submit a pull request. 
