@@ -22,7 +22,6 @@
 
 # misc
 .DS_Store
-.vscode/
 *.pem
 
 # debug
@@ -40,11 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-frontend/node_modules/
-backend/node_modules/
-frontend/dist/
-backend/dist/
-frontend/.env/
-backend/.env/
-frontend/.next/
