@@ -11,6 +11,20 @@ my_venv/bin/*
 my_venv/lib/*
 my_venv/include/*
 my_venv/lib/python3.6/site-packages/*
+
+# more
+frontend/.env/
+backend/.env/
+
+frontend/node_modules/
+backend/node_modules/
+
+frontend/dist/
+backend/dist/
+
+frontend/.next/
+backend/.next/
+
 *.pyc
 __pycache__/
 .DS_Store
