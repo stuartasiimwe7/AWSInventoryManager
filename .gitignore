@@ -5,6 +5,12 @@
 # Dynamic plugins .dll
 bin/
 venv/
+my_venv/
+my_venv/*
+my_venv/bin/*
+my_venv/lib/*
+my_venv/include/*
+my_venv/lib/python3.6/site-packages/*
 *.pyc
 __pycache__/
 .DS_Store
