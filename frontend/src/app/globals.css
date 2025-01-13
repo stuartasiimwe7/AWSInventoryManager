@@ -14,7 +14,6 @@ body,
 .app {
   height: 100%;
   width: 100%;
-  @apply text-sm;
 }
 
 :root {
@@ -26,6 +25,17 @@ body,
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+@media (min-width: 768px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 20vh);
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 7.5vh);
   }
 }
 
