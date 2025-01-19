@@ -48,7 +48,8 @@ Create a .env file in the root directory and add the necessary environment varia
 5. Access the dashboard: Open your browser and navigate to http://localhost:3000.
 
 # Contributing 
-Contributions are welcome! You can fork the repository and submit a pull request. 
+Contributions are welcome! 
+You can fork the repository and submit a pull request. 
 
 # License 
 This project is licensed under the MIT License - see the LICENSE file for details.
