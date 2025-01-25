@@ -67,7 +67,17 @@ const Navbar = () => {
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 cursor-pointer">
             <div className="w-9 h-9">
-              image
+              {/*
+                  <Image
+                    src={`https://s3-inventorymanagement.s3.us-east-2.amazonaws.com/product${
+                      Math.floor(Math.random() * 3) + 1
+                    }.png`}
+                    alt={product.name}
+                    width={48}
+                    height={48}
+                    className="rounded-lg w-14 h-14"
+                  />
+                  */}
             </div>
             <span className="font-semibold">Stuart</span>
           </div>
