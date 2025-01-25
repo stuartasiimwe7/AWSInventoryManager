@@ -50,7 +50,7 @@ const CardPopularProducts = () => {
                 </div>
 
                 <div className="text-xs flex items-center">
-                  <button className="p-2 rounded-full bg-blue-100 text-blue-600 mr-2">
+                  <button type="button" className="p-2 rounded-full bg-blue-100 text-blue-600 mr-2" title="Add to cart">
                     <ShoppingBag className="w-4 h-4" />
                   </button>
                   {Math.round(product.stockQuantity / 1000)}k Sold
