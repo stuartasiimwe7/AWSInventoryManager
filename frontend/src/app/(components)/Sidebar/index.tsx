@@ -100,6 +100,8 @@ const Sidebar = () => {
         </h1>
 
         <button
+          type="button"
+          title="Toggle Sidebar"
           className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
           onClick={toggleSidebar}
         >
