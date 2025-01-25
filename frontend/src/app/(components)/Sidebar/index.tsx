@@ -84,7 +84,7 @@ const Sidebar = () => {
         {/*
         <Image
           src={""}
-          alt="edstock-logo"
+          alt="SA Inventory-logo"
           width={27}
           height={27}
           className="rounded w-8"
@@ -96,7 +96,7 @@ const Sidebar = () => {
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          EDSTOCK
+          SA Inventory
         </h1>
 
         <button
@@ -149,7 +149,12 @@ const Sidebar = () => {
 
       {/* FOOTER */}
       <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
-        <p className="text-center text-xs text-gray-500">&copy; 2024 Edstock</p>
+        <p className="text-center text-xs text-gray-500">
+        {new Date().getFullYear()} &copy; Copyright @ 
+        <a href="https://stuartasiimwe7.github.io" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+          SA Inventory
+        </a>
+        </p>
       </div>
     </div>
   );
