@@ -159,30 +159,75 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser. You should
 ## 5. Folder Structure
 
 ```
-.next
-node_modules
-public
-src
-    app
-        (components)
-        dashboard
-        expenses
-        inventory
-        products
-        settings
-        users
-        ...
-    state
-    ...
-.gitignore
-eslint.config.js
-README.md
-...
+frontend/
+    .next/
+    node_modules/
+    public/
+    src/
+        app/
+            components/
+            dashboard/
+            expenses/
+            inventory/
+            products/
+            settings/
+            users/
+            dashboardWrapper.tsx
+            Favicon.ico
+            globals.css
+            layout.tsx
+            page.tsx
+            redux.tsx
+        state/
+    .env.local
+    .gitignore
+    eslint.config.mjs
+    frontend_README.md
+    next-env.d.ts
+    next.config.ts
+    package-lock.json
+    package.json
+    postcss.config.mjs
+    README.md
+    tailwind.config.ts
+    tsconfig.json
+    venv/
+    LICENSE
 ```
 
 ### Description of Each Folder
 
-- **app:** Contains all the main application components and pages.
-- **state:** Global state management for the project.
-- **public:** Stores static assets like images and icons.
+- **frontend/.next/**: Contains the build output and cache for the Next.js application.
+- **frontend/node_modules/**: Stores all the npm dependencies for the project.
+- **frontend/public/**: Contains static assets like images and icons.
+- **frontend/src/app/**: Main application components and pages.
+    - **components/**: Reusable UI components.
+    - **dashboard/**: Dashboard-related components and pages.
+    - **expenses/**: Expense management components and pages.
+    - **inventory/**: Inventory management components and pages.
+    - **products/**: Product management components and pages.
+    - **settings/**: Application settings components and pages.
+    - **users/**: User management components and pages.
+    - **dashboardWrapper.tsx**: Wrapper component for the dashboard.
+    - **Favicon.ico**: Favicon for the application.
+    - **globals.css**: Global CSS styles.
+    - **layout.tsx**: Layout component for the application.
+    - **page.tsx**: Main page component.
+    - **redux.tsx**: Redux setup and configuration.
+- **frontend/src/state/**: Global state management for the project.
+- **frontend/.env.local**: Environment variables for local development.
+- **frontend/.gitignore**: Specifies files and directories to be ignored by Git.
+- **frontend/eslint.config.mjs**: ESLint configuration file.
+- **frontend/frontend_README.md**: README file for the frontend.
+- **frontend/next-env.d.ts**: TypeScript definitions for Next.js.
+- **frontend/next.config.ts**: Next.js configuration file.
+- **frontend/package-lock.json**: Lockfile for npm dependencies.
+- **frontend/package.json**: Lists project dependencies and scripts.
+- **frontend/postcss.config.mjs**: PostCSS configuration file.
+- **frontend/README.md**: Main README file for the project.
+- **frontend/tailwind.config.ts**: Tailwind CSS configuration file.
+- **frontend/tsconfig.json**: TypeScript configuration file.
+- **frontend/venv/**: Virtual environment for Python dependencies (if any).
+- **frontend/LICENSE**: License file for the project.
+
 
