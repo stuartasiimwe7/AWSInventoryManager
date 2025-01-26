@@ -23,9 +23,24 @@ npx helps manage npm package binaries conveniently. Run the following command to
 ```bash
 npm install -g npx
 ```
-
 ### Code Editor Setup
 
+You can use any code editor of your choice. If you choose to use Visual Studio Code (VS Code) as recommended for this project, follow these steps to set it up:
+
+1. **Open a New Directory in VS Code:**
+    - Launch VS Code and open the project directory.
+
+2. **Toggle the Integrated Terminal:**
+    - **Windows/Linux:** Press `Ctrl + '` 
+    - **Mac:** Press `Cmd + '`
+
+3. **Install Recommended Extensions:**
+    - **ES7+ React/Redux/React-Native Snippets:** Provides handy shortcuts for React/Redux code.
+    - **Prettier:** Automatically formats your code on save for consistency.
+
+4. **Optional Tools:**
+    - **Redux Dev Tools:** Debug state management in your browser.
+    - **Pesticide Chrome Add-On:** Inspect layout structures visually in Chrome.
 Open a new directory in Visual Studio Code (VS Code).
 
 Toggle the integrated terminal using:
