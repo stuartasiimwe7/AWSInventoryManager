@@ -1,6 +1,5 @@
-# AWS Inventory Manager Frontend
-
-The frontend of this project is a responsive, full-featured inventory management dashboard built with Next.js, styled with Tailwind CSS, and powered by modern libraries for state management, charts, and tables.
+# AWS IM - Frontend
+The frontend of this project is a responsive inventory management dashboard built using Next.js. It is styled with Tailwind CSS and utilizes modern libraries for state management, charting, and table components.
 
 ## Prerequisites
 
