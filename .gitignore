@@ -13,6 +13,7 @@ my_venv/bin/*
 my_venv/lib/*
 my_venv/include/*
 my_venv/lib/python3.6/site-packages/*
+aws_inv/*
 
 # more
 frontend/.env/
