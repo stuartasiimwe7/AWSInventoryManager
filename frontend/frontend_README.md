@@ -89,7 +89,7 @@ cd client
 
 Install the following packages in the order specified:
 
-### 3.1 Material UI and Styling Libraries
+#### 3.1 Material UI and Styling Libraries
 
 ```bash
 npm install @mui/x-data-grid @mui/material @emotion/react @emotion/styled
@@ -97,7 +97,7 @@ npm install @mui/x-data-grid @mui/material @emotion/react @emotion/styled
 
 Provides pre-designed, customizable components like tables, forms, and styling utilities.
 
-### 3.2 Icon Library
+#### 3.2 Icon Library
 
 ```bash
 npm install lucide-react
@@ -105,7 +105,7 @@ npm install lucide-react
 
 Adds lightweight, modern icons for the UI.
 
-### 3.3 Number Formatting
+#### 3.3 Number Formatting
 
 ```bash
 npm install numeral
@@ -113,7 +113,7 @@ npm install numeral
 
 Formats numbers (e.g., currency, percentages) for better readability.
 
-### 3.4 Charting Library
+#### 3.4 Charting Library
 
 ```bash
 npm install recharts
@@ -121,7 +121,7 @@ npm install recharts
 
 Enables the creation of visually appealing, responsive charts for dashboard widgets.
 
-### 3.5 Unique ID Generator
+#### 3.5 Unique ID Generator
 
 ```bash
 npm install uuid
@@ -129,7 +129,7 @@ npm install uuid
 
 Generates unique IDs for data objects like products and users.
 
-### 3.6 API Handling
+#### 3.6 API Handling
 
 ```bash
 npm install axios
@@ -137,7 +137,7 @@ npm install axios
 
 Provides a promise-based HTTP client for handling API requests and responses.
 
-### 3.7 TypeScript Definitions
+#### 3.7 TypeScript Definitions
 
 ```bash
 npm install -D @types/node @types/uuid @types/numeral
