@@ -52,64 +52,78 @@ mv inventory-management frontend
 Navigate to the client directory:
 
 bash
-Copy
-Edit
+ 
 cd client
 Install the following packages in the order specified:
 
 3.1 Material UI and Styling Libraries
 bash
-Copy
-Edit
+ 
 npm install @mui/x-data-grid @mui/material @emotion/react @emotion/styled
-Why? Provides pre-designed, customizable components like tables, forms, and styling utilities.
+Provides pre-designed, customizable components like tables, forms, and styling utilities.
 3.2 Icon Library
 bash
-Copy
-Edit
+ 
 npm install lucide-react
-Why? Adds lightweight, modern icons for the UI.
+Adds lightweight, modern icons for the UI.
 3.3 Number Formatting
 bash
-Copy
-Edit
+ 
 npm install numeral
-Why? Formats numbers (e.g., currency, percentages) for better readability.
+Formats numbers (e.g., currency, percentages) for better readability.
 3.4 Charting Library
 bash
-Copy
-Edit
+ 
 npm install recharts
-Why? Enables the creation of visually appealing, responsive charts for dashboard widgets.
+Enables the creation of visually appealing, responsive charts for dashboard widgets.
 3.5 Unique ID Generator
 bash
-Copy
-Edit
+ 
 npm install uuid
-Why? Generates unique IDs for data objects like products and users.
+Generates unique IDs for data objects like products and users.
 3.6 API Handling
 bash
-Copy
-Edit
+ 
 npm install axios
-Why? Provides a promise-based HTTP client for handling API requests and responses.
+Provides a promise-based HTTP client for handling API requests and responses.
 3.7 TypeScript Definitions
 bash
-Copy
-Edit
+ 
 npm install -D @types/node @types/uuid @types/numeral
-Why? Ensures type safety when working with the installed libraries.
+Ensures type safety when working with the installed libraries.
 4. Run and Test the Application
 Start the development server:
 
 bash
-Copy
-Edit
+ 
 npm run dev
 Visit http://localhost:3000 in your browser. You should see a basic "Hello World" page confirming that the setup is complete.
 
 5.Folder Structure:
-pages/: Contains all Next.js routes.
-styles/: Global CSS for the project.
+.next
+node_modules
+public
+src
+    app
+        (components)
+        dashboard
+        expenses
+        inventory
+        products
+        settings
+        users
+        ...
+    state
+    ...
+.gitignore
+eslint,cong..
+this file.md
+...
+
+
+description of each of the above
+...
+app: Contains all ...
+state/: Global CSS for the project.
 public/: Stores static assets like images and icons.
-Browser Tools: Install Redux Dev Tools for enhanced debugging and Pesticide for inspecting layout structures.
+...
