@@ -156,7 +156,8 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser. You should see a basic "Hello World" page confirming that the setup is complete.
 
-## 5. Folder Structure
+## 5. Directory Structure
+At the end of your work, your setup should look something close to this:
 
 ```
 frontend/
@@ -165,7 +166,7 @@ frontend/
     public/
     src/
         app/
-            components/
+            (components)/
             dashboard/
             expenses/
             inventory/
@@ -195,7 +196,7 @@ frontend/
     LICENSE
 ```
 
-### Description of Each Folder
+### Description of Each File/Directory
 
 - **frontend/.next/**: Contains the build output and cache for the Next.js application.
 - **frontend/node_modules/**: Stores all the npm dependencies for the project.
