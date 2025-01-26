@@ -40,7 +40,8 @@ You can use any code editor of your choice. If you choose to use Visual Studio C
 
 4. **Optional Tools:**
     - **Redux Dev Tools:** Debug state management in your browser.
-    - **Pesticide Chrome Add-On:** Inspect layout structures visually in Chrome.
+    - **Pesticide for Chrome or CSSViewer on Edge:** Inspect layout structures visually in Chrome and Edge respectively. Both can be downloaded from the relevant webstores.
+
 Open a new directory in Visual Studio Code (VS Code).
 
 Toggle the integrated terminal using:
@@ -52,6 +53,8 @@ Install these VS Code extensions:
 
 - **ES7+ React/Redux/React-Native Snippets:** Provides handy shortcuts for React/Redux code.
 - **Prettier:** Automatically formats your code on save for consistency.
+- **IntelliSense for CSS class names in HTML:** Provides CSS class name completion for better productivity.
+- **GitHub Copilot:** Assists with code suggestions and autocompletion using AI.
 
 Optionally, install these browser and VS Code tools:
 
