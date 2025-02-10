@@ -1,21 +1,101 @@
 global:
   smtp_smarthost: 'localhost:587'
   smtp_from: 'alerts@monitoring.local'
+  smtp_auth_username: 'alerts@monitoring.local'
+  smtp_auth_password: 'password'
 
 route:
-  group_by: ['alertname']
+  group_by: ['alertname', 'team']
   group_wait: 10s
   group_interval: 10s
   repeat_interval: 1h
-  receiver: 'web.hook'
+  receiver: 'default'
+  routes:
+  - match:
+      severity: critical
+    receiver: 'critical-alerts'
+    group_wait: 5s
+    repeat_interval: 30m
+  - match:
+      team: infrastructure
+    receiver: 'infrastructure-team'
+  - match:
+      team: backend
+    receiver: 'backend-team'
+  - match:
+      team: business
+    receiver: 'business-team'
 
 receivers:
-- name: 'web.hook'
-  webhook_configs:
-  - url: 'http://host.docker.internal:8000/webhook'
-    send_resolved: true
-
 - name: 'default'
   webhook_configs:
   - url: 'http://host.docker.internal:8000/webhook'
     send_resolved: true
+
+- name: 'critical-alerts'
+  email_configs:
+  - to: 'oncall@company.com'
+    subject: '[CRITICAL] {{ .GroupLabels.alertname }}'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Runbook: {{ .Annotations.runbook_url }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://host.docker.internal:8000/webhook'
+    send_resolved: true
+  slack_configs:
+  - api_url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
+    channel: '#alerts-critical'
+    title: 'Critical Alert'
+    text: '{{ range .Alerts }}{{ .Annotations.summary }}{{ end }}'
+
+- name: 'infrastructure-team'
+  email_configs:
+  - to: 'infrastructure@company.com'
+    subject: '[Infrastructure] {{ .GroupLabels.alertname }}'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Runbook: {{ .Annotations.runbook_url }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://host.docker.internal:8000/webhook'
+    send_resolved: true
+
+- name: 'backend-team'
+  email_configs:
+  - to: 'backend@company.com'
+    subject: '[Backend] {{ .GroupLabels.alertname }}'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Runbook: {{ .Annotations.runbook_url }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://host.docker.internal:8000/webhook'
+    send_resolved: true
+
+- name: 'business-team'
+  email_configs:
+  - to: 'business@company.com'
+    subject: '[Business] {{ .GroupLabels.alertname }}'
+    body: |
+      {{ range .Alerts }}
+      Alert: {{ .Annotations.summary }}
+      Description: {{ .Annotations.description }}
+      Runbook: {{ .Annotations.runbook_url }}
+      {{ end }}
+  webhook_configs:
+  - url: 'http://host.docker.internal:8000/webhook'
+    send_resolved: true
+
+inhibit_rules:
+- source_match:
+    severity: 'critical'
+  target_match:
+    severity: 'warning'
+  equal: ['alertname', 'instance']
