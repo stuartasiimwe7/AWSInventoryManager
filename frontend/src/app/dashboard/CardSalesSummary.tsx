@@ -1,10 +1,10 @@
 
 import { useGetDashboardMetricsQuery } from "@/state/api";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Cpu, MemoryStick, HardDrive, Wifi } from "lucide-react";
 import React, { useState } from "react";
 import {
-  Bar,
-  BarChart,
+  Line,
+  LineChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
@@ -12,31 +12,20 @@ import {
   YAxis,
 } from "recharts";
 
-const CardSalesSummary = () => {
+const CardSystemPerformance = () => {
   const { data, isLoading, isError } = useGetDashboardMetricsQuery();
-  const salesData = data?.salesSummary || [];
+  const systemMetrics = data?.systemMetrics;
 
-  const [timeframe, setTimeframe] = useState("weekly");
+  const [timeframe, setTimeframe] = useState("1h");
 
-  const totalValueSum =
-    salesData.reduce((acc, curr) => acc + curr.totalValue, 0) || 0;
-
-  const averageChangePercentage =
-    salesData.reduce((acc, curr, _, array) => {
-      return acc + curr.changePercentage! / array.length;
-    }, 0) || 0;
-
-  const highestValueData = salesData.reduce((acc, curr) => {
-    return acc.totalValue > curr.totalValue ? acc : curr;
-  }, salesData[0] || {});
-
-  const highestValueDate = highestValueData.date
-    ? new Date(highestValueData.date).toLocaleDateString("en-US", {
-        month: "numeric",
-        day: "numeric",
-        year: "2-digit",
-      })
-    : "N/A";
+  // Mock time series data for system metrics
+  const systemData = [
+    { time: "00:00", cpu: 45, memory: 67, disk: 23, network: 125 },
+    { time: "00:15", cpu: 52, memory: 69, disk: 24, network: 142 },
+    { time: "00:30", cpu: 48, memory: 71, disk: 25, network: 138 },
+    { time: "00:45", cpu: 55, memory: 68, disk: 26, network: 156 },
+    { time: "01:00", cpu: 49, memory: 70, disk: 27, network: 149 },
+  ];
 
   if (isError) {
     return <div className="m-5">Failed to fetch data</div>;
@@ -51,83 +40,57 @@ const CardSalesSummary = () => {
           {/* HEADER */}
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
-              Sales Summary
+              System Performance
             </h2>
             <hr />
           </div>
 
           {/* BODY */}
           <div>
-            {/* BODY HEADER */}
-            <div className="flex justify-between items-center mb-6 px-7 mt-5">
-              <div className="text-lg font-medium">
-                <p className="text-xs text-gray-400">Value</p>
-                <span className="text-2xl font-extrabold">
-                  $
-                  {(totalValueSum / 1000000).toLocaleString("en", {
-                    maximumFractionDigits: 2,
-                  })}
-                  m
-                </span>
-                <span className="text-green-500 text-sm ml-2">
-                  <TrendingUp className="inline w-4 h-4 mr-1" />
-                  {averageChangePercentage.toFixed(2)}%
-                </span>
+            {/* METRICS OVERVIEW */}
+            <div className="grid grid-cols-2 gap-4 px-7 mt-5 mb-6">
+              <div className="flex items-center space-x-3">
+                <Cpu className="w-5 h-5 text-blue-500" />
+                <div>
+                  <p className="text-xs text-gray-400">CPU Usage</p>
+                  <p className="text-lg font-bold">{systemMetrics?.cpuUsage || 0}%</p>
+                </div>
               </div>
-              <select
-                className="shadow-sm border border-gray-300 bg-white p-2 rounded"
-                value={timeframe}
-                onChange={(e) => {
-                  setTimeframe(e.target.value);
-                }}
-              >
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-              </select>
+              <div className="flex items-center space-x-3">
+                <MemoryStick className="w-5 h-5 text-green-500" />
+                <div>
+                  <p className="text-xs text-gray-400">Memory</p>
+                  <p className="text-lg font-bold">{systemMetrics?.memoryUsage || 0}%</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <HardDrive className="w-5 h-5 text-orange-500" />
+                <div>
+                  <p className="text-xs text-gray-400">Disk Usage</p>
+                  <p className="text-lg font-bold">{systemMetrics?.diskUsage || 0}%</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Wifi className="w-5 h-5 text-purple-500" />
+                <div>
+                  <p className="text-xs text-gray-400">Network I/O</p>
+                  <p className="text-lg font-bold">{systemMetrics?.networkIO || 0} MB/s</p>
+                </div>
+              </div>
             </div>
+
             {/* CHART */}
-            <ResponsiveContainer width="100%" height={350} className="px-7">
-              <BarChart
-                data={salesData}
-                margin={{ top: 0, right: 0, left: -25, bottom: 0 }}
-              >
-                <CartesianGrid strokeDasharray="" vertical={false} />
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={(value) => {
-                    const date = new Date(value);
-                    return `${date.getMonth() + 1}/${date.getDate()}`;
-                  }}
-                />
-                <YAxis
-                  tickFormatter={(value) => {
-                    return `$${(value / 1000000).toFixed(0)}m`;
-                  }}
-                  tick={{ fontSize: 12, dx: -1 }}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <Tooltip
-                  formatter={(value: number) => [
-                    `$${value.toLocaleString("en")}`,
-                  ]}
-                  labelFormatter={(label) => {
-                    const date = new Date(label);
-                    return date.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    });
-                  }}
-                />
-                <Bar
-                  dataKey="totalValue"
-                  fill="#3182ce"
-                  barSize={10}
-                  radius={[10, 10, 0, 0]}
-                />
-              </BarChart>
+            <ResponsiveContainer width="100%" height={300} className="px-7">
+              <LineChart data={systemData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="time" />
+                <YAxis />
+                <Tooltip />
+                <Line type="monotone" dataKey="cpu" stroke="#3b82f6" strokeWidth={2} />
+                <Line type="monotone" dataKey="memory" stroke="#10b981" strokeWidth={2} />
+                <Line type="monotone" dataKey="disk" stroke="#f59e0b" strokeWidth={2} />
+                <Line type="monotone" dataKey="network" stroke="#8b5cf6" strokeWidth={2} />
+              </LineChart>
             </ResponsiveContainer>
           </div>
 
@@ -135,10 +98,9 @@ const CardSalesSummary = () => {
           <div>
             <hr />
             <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
-              <p>{salesData.length || 0} days</p>
+              <p>Last updated: {new Date().toLocaleTimeString()}</p>
               <p className="text-sm">
-                Highest Sales Date:{" "}
-                <span className="font-bold">{highestValueDate}</span>
+                Status: <span className="font-bold text-green-500">Healthy</span>
               </p>
             </div>
           </div>
@@ -148,4 +110,4 @@ const CardSalesSummary = () => {
   );
 };
 
-export default CardSalesSummary;
+export default CardSystemPerformance;

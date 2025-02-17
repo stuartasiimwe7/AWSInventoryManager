@@ -42,12 +42,31 @@ export interface ExpenseByCategorySummary {
   date: string;
 }
 
+export interface SystemMetrics {
+  cpuUsage: number;
+  memoryUsage: number;
+  diskUsage: number;
+  networkIO: number;
+}
+
+export interface ApplicationMetrics {
+  requestRate: number;
+  responseTimeP95: number;
+  errorRate: number;
+  activeUsers: number;
+}
+
+export interface BusinessMetrics {
+  totalUsers: number;
+  dailyActiveUsers: number;
+  revenueToday: number;
+  conversionRate: number;
+}
+
 export interface DashboardMetrics {
-  popularProducts: Product[];
-  salesSummary: SalesSummary[];
-  purchaseSummary: PurchaseSummary[];
-  expenseSummary: ExpenseSummary[];
-  expenseByCategorySummary: ExpenseByCategorySummary[];
+  systemMetrics: SystemMetrics;
+  applicationMetrics: ApplicationMetrics;
+  businessMetrics: BusinessMetrics;
 }
 
 export interface User {
