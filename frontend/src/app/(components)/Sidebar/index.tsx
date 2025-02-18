@@ -11,6 +11,9 @@ import {
   Menu,
   SlidersHorizontal,
   User,
+  BarChart3,
+  Activity,
+  Server,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -96,7 +99,7 @@ const Sidebar = () => {
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          SA Inventory
+          AWS Monitor
         </h1>
 
         <button
@@ -119,14 +122,20 @@ const Sidebar = () => {
         />
         <SidebarLink
           href="/inventory"
-          icon={Archive}
-          label="Inventory"
+          icon={BarChart3}
+          label="Metrics Explorer"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
           href="/products"
-          icon={Clipboard}
-          label="Products"
+          icon={Server}
+          label="Service Health"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
+          href="/grafana"
+          icon={Activity}
+          label="Grafana Dashboards"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
@@ -154,7 +163,7 @@ const Sidebar = () => {
         <p className="text-center text-xs text-gray-500">
         {new Date().getFullYear()} &copy; Copyright @ 
         <a href="https://stuartasiimwe7.github.io" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-          SA Inventory
+          AWS Monitor
         </a>
         </p>
       </div>
