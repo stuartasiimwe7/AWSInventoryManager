@@ -1,4 +1,6 @@
 
+"use client";
+
 import { useGetDashboardMetricsQuery } from "@/state/api";
 import { TrendingUp, Cpu, MemoryStick, HardDrive, Wifi } from "lucide-react";
 import React, { useState } from "react";
