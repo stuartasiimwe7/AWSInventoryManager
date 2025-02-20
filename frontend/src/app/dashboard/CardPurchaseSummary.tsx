@@ -1,3 +1,5 @@
+"use client";
+
 import { useGetDashboardMetricsQuery } from "@/state/api";
 import { TrendingDown, TrendingUp, Activity, Clock, Users, AlertTriangle } from "lucide-react";
 import React from "react";
@@ -8,7 +10,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from "recharts";
+} from "@/app/(components)/ClientOnlyChart";
 
 const CardApplicationMetrics = () => {
   const { data, isLoading } = useGetDashboardMetricsQuery();

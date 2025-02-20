@@ -12,7 +12,7 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from "recharts";
+} from "@/app/(components)/ClientOnlyChart";
 
 const CardSystemPerformance = () => {
   const { data, isLoading, isError } = useGetDashboardMetricsQuery();
