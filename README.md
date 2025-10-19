@@ -37,7 +37,7 @@ This is a full-stack monitoring solution that combines backend APIs with a front
 ## Project Structure
 
 ```
-SystemPulse/
+system_pulse/
 ├── backend/                 # FastAPI backend
 │   ├── app/
 │   │   ├── api/v1/         
@@ -65,7 +65,7 @@ SystemPulse/
 
 ```bash
 git clone https://github.com/stuartasiimwe7/system_pulse.git
-cd SystemPulse
+cd system_pulse
 ```
 
 
